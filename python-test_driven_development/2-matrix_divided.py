@@ -62,4 +62,7 @@ def matrix_divided(matrix=None, div=None):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    return [[round(element / div, 2) for element in row] for row in matrix]
+    return [
+        [round(element / div, 2) for element in row]
+        for row in matrix
+    ]

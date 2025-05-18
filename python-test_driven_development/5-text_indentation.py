@@ -18,13 +18,19 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    start = 0
-    for i, c in enumerate(text):
+    result = []
+    current = ""
+
+    for c in text:
+        current += c
         if c in ".:?":
-            print(text[start:i + 1].strip())
-            print()
-            start = i + 1
-            while start < len(text) and text[start] == " ":
-                start += 1
-    if start < len(text):
-        print(text[start:].strip(), end="")
+            result.append(current.strip())
+            current = ""
+
+    if current.strip():
+        result.append(current.strip())
+
+    for i in range(len(result)):
+        print(result[i], end="")
+        if i < len(result) - 1:
+            print("\n")

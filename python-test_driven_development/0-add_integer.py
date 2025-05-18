@@ -6,6 +6,7 @@ The function ensures inputs are integers or floats, casts floats to
 integers, and raises a TypeError or ValueError as needed.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two numbers after checking they are int or float types.
@@ -21,8 +22,6 @@ def add_integer(a, b=98):
         TypeError: If a or b are not int or float.
         ValueError: If a or b is NaN or infinite.
     """
-
-    
     import math
 
     for var, name in [(a, "a"), (b, "b")]:

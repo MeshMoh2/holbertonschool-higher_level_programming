@@ -1,0 +1,10 @@
+>>> add_integer(1, 2)
+3
+>>> add_integer(100)
+198
+>>> add_integer(100.5, 2)
+102
+>>> add_integer("hello", 2)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer

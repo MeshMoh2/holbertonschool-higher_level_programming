@@ -21,6 +21,8 @@ def add_integer(a, b=98):
         TypeError: If a or b are not int or float.
         ValueError: If a or b is NaN or infinite.
     """
+
+    
     import math
 
     for var, name in [(a, "a"), (b, "b")]:

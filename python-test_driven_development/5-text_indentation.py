@@ -3,14 +3,15 @@
 This module defines a function that prints text with two new lines after
 each '.', '?' or ':' character.
 """
+import sys
 
 
 def text_indentation(text):
     """
-    Prints text with 2 new lines after each '.', '?', or ':' character.
+    Prints text with 2 new lines after '.', '?', or ':' characters.
 
     Args:
-        text (str): The input string.
+        text (str): The input text.
 
     Raises:
         TypeError: If text is not a string.
@@ -18,19 +19,12 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    new_text = ""
-    i = 0
-    while i < len(text):
-        new_text += text[i]
-        if text[i] in ".:?":
-            new_text = new_text.strip() + "\n\n"
-            print(new_text, end="")
-            new_text = ""
-            i += 1
-            while i < len(text) and text[i] == " ":
-                i += 1
-            continue
-        i += 1
+    buffer = ""
+    for i, char in enumerate(text):
+        buffer += char
+        if char in ".:?":
+            sys.stdout.write(buffer.strip() + "\n\n")
+            buffer = ""
 
-    if new_text.strip():
-        print(new_text.strip(), end="")
+    if buffer.strip():
+        sys.stdout.write(buffer.strip())

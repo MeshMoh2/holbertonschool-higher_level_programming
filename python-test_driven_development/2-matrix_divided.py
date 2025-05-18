@@ -7,7 +7,7 @@ then returns a new matrix with values rounded to 2 decimals.
 """
 
 
-def matrix_divided(matrix, div):
+def matrix_divided(matrix=None, div=None):
     """
     Divides all elements of a matrix by a given number.
 
@@ -24,7 +24,13 @@ def matrix_divided(matrix, div):
                    or if matrix rows are uneven.
         ZeroDivisionError: If div is 0.
     """
+    if matrix is None or div is None:
+        raise TypeError("matrix_divided() missing required arguments 'matrix' and/or 'div'")
+
     if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+
+    if matrix == [] or any(row == [] for row in matrix):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
     row_length = len(matrix[0])

@@ -27,7 +27,7 @@ def matrix_divided(matrix=None, div=None):
     if matrix is None or div is None:
         raise TypeError(
             "matrix_divided() missing required arguments "
-            "'matrix' and/or 'div'"
+            + "'matrix' and/or 'div'"
         )
 
     if not isinstance(matrix, list) or not all(

@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """
 This module provides a function that divides all elements of a matrix.
-
-It checks for valid matrix structure and division input,
-then returns a new matrix with values rounded to 2 decimals.
 """
 
 
@@ -11,18 +8,11 @@ def matrix_divided(matrix=None, div=None):
     """
     Divides all elements of a matrix by a given number.
 
-    Args:
-        matrix: A list of lists of integers or floats.
-        div: A number (int or float) not equal to 0, inf, or NaN.
-
     Returns:
-        A new matrix with each value divided by div, rounded to 2 decimals.
+        A new matrix with elements divided by div, rounded to 2 decimals.
 
     Raises:
-        TypeError: If matrix is not a list of lists of numbers,
-                   or if div is not a valid number (or inf/nan),
-                   or if matrix rows are uneven.
-        ZeroDivisionError: If div is 0.
+        TypeError, ZeroDivisionError
     """
     if matrix is None or div is None:
         raise TypeError(
@@ -55,8 +45,7 @@ def matrix_divided(matrix=None, div=None):
     if (
         not isinstance(div, (int, float))
         or div != div
-        or div == float('inf')
-        or div == float('-inf')
+        or div in (float('inf'), float('-inf'))
     ):
         raise TypeError("div must be a number")
 

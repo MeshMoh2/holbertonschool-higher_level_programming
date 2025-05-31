@@ -1,3 +1,4 @@
+>>> from my_list import MyList
 >>> m = MyList()
 >>> m.append(3)
 >>> m.append(1)

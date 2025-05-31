@@ -7,13 +7,13 @@ and includes a method to print the list in sorted order.
 
 class MyList(list):
     """
-    MyList is a subclass of list with an added method
-    to print the list in ascending sorted order.
+    MyList is a subclass of list that has
+    a method to print the list in sorted order.
     """
 
     def print_sorted(self):
         """
-        Prints the list in ascending sorted order
-        without modifying the original list.
+        Prints the list in ascending sorted order.
+        The original list is not modified.
         """
         print(sorted(self))

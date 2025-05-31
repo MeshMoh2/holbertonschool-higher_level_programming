@@ -1,0 +1,13 @@
+>>> from 1-my_list import MyList
+>>> m = MyList()
+>>> m.append(5)
+>>> m.append(3)
+>>> m.append(4)
+>>> m.append(1)
+>>> m.append(2)
+>>> print(m)
+[5, 3, 4, 1, 2]
+>>> m.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(m)
+[5, 3, 4, 1, 2]

@@ -4,7 +4,7 @@ import math
 
 class Shape(ABC):
     """Abstract class for geometric shapes."""
-    
+
     @abstractmethod
     def area(self):
         """Calculate the area of the shape."""
@@ -17,7 +17,7 @@ class Shape(ABC):
 
 class Circle(Shape):
     """Concrete implementation of a Circle."""
-    
+
     def __init__(self, radius):
         self.radius = radius
 
@@ -29,7 +29,7 @@ class Circle(Shape):
 
 class Rectangle(Shape):
     """Concrete implementation of a Rectangle."""
-    
+
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -42,6 +42,9 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     """Function to display shape information using duck typing."""
+    if not hasattr(shape, "area") or not hasattr(shape, "perimeter"):
+        raise TypeError("Passed object does not implement required methods!")
+    
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
 

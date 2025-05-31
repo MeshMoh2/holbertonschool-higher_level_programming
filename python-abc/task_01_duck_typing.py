@@ -1,28 +1,36 @@
-#!/usr/bin/env python3
-"""VerboseList: Custom list subclass with notifications on changes."""
+from abc import ABC, abstractmethod
+import math
 
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
 
-class VerboseList(list):
-    """List subclass that prints messages when modified."""
+    @abstractmethod
+    def perimeter(self):
+        pass
 
-    def append(self, item):
-        """Append item and print notification."""
-        super().append(item)
-        print(f"Added [{item}] to the list.")
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
 
-    def extend(self, iterable):
-        """Extend list and print how many items were added."""
-        count = len(iterable)
-        super().extend(iterable)
-        print(f"Extended the list with [{count}] items.")
+    def area(self):
+        return math.pi * self.radius ** 2
 
-    def remove(self, item):
-        """Remove item and print notification."""
-        print(f"Removed [{item}] from the list.")
-        super().remove(item)
+    def perimeter(self):
+        return 2 * math.pi * self.radius
 
-    def pop(self, index=-1):
-        """Pop item at index and print notification."""
-        item = self[index]
-        print(f"Popped [{item}] from the list.")
-        return super().pop(index)
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+def shape_info(shape):
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")

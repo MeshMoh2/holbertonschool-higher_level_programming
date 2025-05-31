@@ -9,31 +9,6 @@ class MyList(list):
     """
     MyList is a subclass of list that has
     a method to print the list in sorted order.
-
-    Example:
-        >>> m = MyList()
-        >>> m.append(3)
-        >>> m.append(1)
-        >>> m.append(2)
-        >>> m.print_sorted()
-        [1, 2, 3]
-        >>> print(m)
-        [3, 1, 2]
-
-        >>> m = MyList()
-        >>> m.append(-2)
-        >>> m.append(-5)
-        >>> m.append(0)
-        >>> m.print_sorted()
-        [-5, -2, 0]
-        >>> print(m)
-        [-2, -5, 0]
-
-        >>> empty = MyList()
-        >>> empty.print_sorted()
-        []
-        >>> print(empty)
-        []
     """
 
     def print_sorted(self):

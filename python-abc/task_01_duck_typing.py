@@ -1,57 +1,28 @@
 #!/usr/bin/env python3
-from abc import ABC, abstractmethod
-import math
+"""VerboseList: Custom list with notifications on mutation methods."""
 
-class Shape(ABC):
-    """Abstract class for geometric shapes."""
 
-    @abstractmethod
-    def area(self):
-        """Calculate the area of the shape."""
-        pass
+class VerboseList(list):
+    """Custom list subclass that prints messages on changes."""
 
-    @abstractmethod
-    def perimeter(self):
-        """Calculate the perimeter of the shape."""
-        pass
+    def append(self, item):
+        """Append item to the list and print notification."""
+        super().append(item)
+        print(f"Added [{item}] to the list.")
 
-class Circle(Shape):
-    """Concrete implementation of a Circle."""
+    def extend(self, iterable):
+        """Extend list with items from iterable and print notification."""
+        count = len(iterable)
+        super().extend(iterable)
+        print(f"Extended the list with [{count}] items.")
 
-    def __init__(self, radius):
-        self.radius = radius
+    def remove(self, item):
+        """Remove item from the list and print notification."""
+        print(f"Removed [{item}] from the list.")
+        super().remove(item)
 
-    def area(self):
-        return math.pi * self.radius ** 2
-
-    def perimeter(self):
-        return 2 * math.pi * self.radius
-
-class Rectangle(Shape):
-    """Concrete implementation of a Rectangle."""
-
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-
-    def area(self):
-        return self.width * self.height
-
-    def perimeter(self):
-        return 2 * (self.width + self.height)
-
-def shape_info(shape):
-    """Function to display shape information using duck typing."""
-    if not hasattr(shape, "area") or not hasattr(shape, "perimeter"):
-        raise TypeError("Passed object does not implement required methods!")
-    
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
-
-# Testing the implementation
-if __name__ == "__main__":
-    circle = Circle(radius=5)
-    rectangle = Rectangle(width=4, height=7)
-
-    shape_info(circle)
-    shape_info(rectangle)
+    def pop(self, index=-1):
+        """Pop item from the list at index and print notification."""
+        item = self[index]
+        print(f"Popped [{item}] from the list.")
+        return super().pop(index)

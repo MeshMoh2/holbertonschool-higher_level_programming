@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-This module defines a Shape interface using abstract base classes,
-and implements Circle and Rectangle with duck typing demonstration.
+This module defines an abstract Shape class and
+concrete Circle and Rectangle classes that implement area and perimeter.
+It also provides a function to print shape information using duck typing.
 """
 
 from abc import ABC, abstractmethod
@@ -10,23 +11,23 @@ import math
 
 class Shape(ABC):
     """
-    Abstract base class representing a geometric shape.
+    Abstract base class for geometric shapes.
     """
 
     @abstractmethod
     def area(self):
-        """Return the area of the shape."""
+        """Calculate area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Return the perimeter of the shape."""
+        """Calculate perimeter of the shape."""
         pass
 
 
 class Circle(Shape):
     """
-    A class representing a circle.
+    Circle class implementing Shape interface.
     """
 
     def __init__(self, radius):
@@ -41,7 +42,7 @@ class Circle(Shape):
 
 class Rectangle(Shape):
     """
-    A class representing a rectangle.
+    Rectangle class implementing Shape interface.
     """
 
     def __init__(self, width, height):
@@ -56,5 +57,11 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
+    """
+    Prints the area and perimeter of a shape using duck typing.
+
+    Args:
+        shape: An object that implements area() and perimeter()
+    """
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())

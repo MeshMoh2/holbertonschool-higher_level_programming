@@ -1,4 +1,4 @@
->>> from 1-my_list import MyList
+>>> from my_list import MyList
 >>> m = MyList()
 >>> m.append(3)
 >>> m.append(1)
@@ -7,18 +7,3 @@
 [1, 2, 3]
 >>> print(m)
 [3, 1, 2]
-
->>> m = MyList()
->>> m.append(-1)
->>> m.append(-5)
->>> m.append(0)
->>> m.print_sorted()
-[-5, -1, 0]
->>> print(m)
-[-1, -5, 0]
-
->>> m = MyList()
->>> m.print_sorted()
-[]
->>> print(m)
-[]

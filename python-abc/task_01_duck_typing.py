@@ -9,21 +9,21 @@ from math import pi
 
 
 class Shape(ABC):
-    """Abstract base class for geometric shapes."""
+
 
     @abstractmethod
     def area(self):
-        """Calculate and return the area of the shape."""
+        
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate and return the perimeter of the shape."""
+        
         pass
 
 
 class Circle(Shape):
-    """Circle shape, defined by radius."""
+    
 
     def __init__(self, radius):
         self.radius = radius
@@ -36,7 +36,7 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """Rectangle shape, defined by width and height."""
+    
 
     def __init__(self, width, height):
         self.width = width

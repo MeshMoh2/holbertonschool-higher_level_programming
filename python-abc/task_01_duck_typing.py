@@ -15,45 +15,33 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """
-        Calculate the area of the shape.
-        Must be implemented by subclasses.
-        """
+        """Return the area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """
-        Calculate the perimeter of the shape.
-        Must be implemented by subclasses.
-        """
+        """Return the perimeter of the shape."""
         pass
 
 
 class Circle(Shape):
     """
-    Circle shape, defined by its radius.
+    A class representing a circle.
     """
 
     def __init__(self, radius):
         self.radius = radius
 
     def area(self):
-        """
-        Returns the area of the circle.
-        """
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """
-        Returns the perimeter (circumference) of the circle.
-        """
         return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
     """
-    Rectangle shape, defined by width and height.
+    A class representing a rectangle.
     """
 
     def __init__(self, width, height):
@@ -61,24 +49,18 @@ class Rectangle(Shape):
         self.height = height
 
     def area(self):
-        """
-        Returns the area of the rectangle.
-        """
         return self.width * self.height
 
     def perimeter(self):
-        """
-        Returns the perimeter of the rectangle.
-        """
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
     """
-    Print area and perimeter of a shape.
+    Print the area and perimeter of a shape using duck typing.
 
     Args:
-        shape: An object expected to have area() and perimeter() methods.
+        shape: Any object with .area() and .perimeter() methods.
     """
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())

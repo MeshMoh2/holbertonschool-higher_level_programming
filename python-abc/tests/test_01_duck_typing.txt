@@ -1,0 +1,9 @@
+>>> from task_01_duck_typing import Circle, Rectangle
+>>> round(Circle(1).area(), 2)
+3.14
+>>> round(Circle(1).perimeter(), 2)
+6.28
+>>> Rectangle(3, 4).area()
+12
+>>> Rectangle(3, 4).perimeter()
+14

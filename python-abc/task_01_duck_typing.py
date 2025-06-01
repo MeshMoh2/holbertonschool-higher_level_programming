@@ -1,18 +1,14 @@
-#!/usr/bin/env python3
 from abc import ABC, abstractmethod
 import math
 
 class Shape(ABC):
     @abstractmethod
     def area(self):
-        """Return the area of the shape"""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Return the perimeter of the shape"""
         pass
-
 
 class Circle(Shape):
     def __init__(self, radius):
@@ -23,7 +19,6 @@ class Circle(Shape):
 
     def perimeter(self):
         return 2 * math.pi * self.radius
-
 
 class Rectangle(Shape):
     def __init__(self, width, height):
@@ -36,8 +31,6 @@ class Rectangle(Shape):
     def perimeter(self):
         return 2 * (self.width + self.height)
 
-
 def shape_info(shape):
-    """Prints area and perimeter using duck typing."""
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")

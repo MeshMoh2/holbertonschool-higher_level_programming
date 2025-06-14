@@ -43,13 +43,11 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode('utf-8'))
 
         else:
+            # Fix: respond with plain text for undefined endpoints
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            error = {
-                "error": "Endpoint not found"
-            }
-            self.wfile.write(json.dumps(error).encode('utf-8'))
+            self.wfile.write(b"Endpoint not found")
 
 
 def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):

@@ -1,36 +1,28 @@
 #!/usr/bin/python3
-"""Lists all states with a name starting with 'N' from the database hbtn_0e_0_usa"""
+"""
+Lists all states with a name starting with 'N' from the database hbtn_0e_0_usa
+Usage: ./1-filter_states.py <mysql username> <mysql password> <database name>
+Results sorted by states.id ascending
+"""
 
-import MySQLdb
 import sys
+import MySQLdb
 
-def main():
-    """Main logic: connect to DB, execute query, print filtered states"""
-    # Get arguments
-    username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
+if __name__ == "__main__":
+    user = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
 
-    # Connect to MySQL database
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=db_name
-    )
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=user, passwd=password, db=db_name,
+                         charset="utf8")
 
-    # Create a cursor and execute query
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    cursor.execute(query)
 
-    # Fetch and print results
-    rows = cursor.fetchall()
-    for row in rows:
+    for row in cursor.fetchall():
         print(row)
 
-    # Clean up
     cursor.close()
     db.close()
-
-# Ensure code is not executed when imported
-if __name__ == "__main__":
-    main()
